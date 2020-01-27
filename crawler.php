@@ -1,6 +1,6 @@
 <<?php 
 
-$website_to_crawl= "http://www.learningaboutelectronics.com";
+$tag_website= "https://olabodeoyinkansola.com";
 $all_links= array();
 
 
@@ -13,7 +13,7 @@ $regexp= "<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>";
 preg_match_all("/$regexp/siU", $contents, $matches);
 $path_of_url= parse_url($url, PHP_URL_HOST);
 
-if (strpos($website_to_crawl, "https://") == true)
+if (strpos($tag_website, "https://") == true)
 {
 $type= "https://";
 }
@@ -79,7 +79,7 @@ array_push($all_links, $link);
 
 }//ends function get_links
 
-get_links($website_to_crawl);
+get_links($tag_website);
 
 foreach ($all_links as $currentlink)
 {
@@ -94,7 +94,7 @@ get_links($currentlink);
 
 foreach ($all_links as $currentlink)
 {
-if ((strpos($currentlink, "www.learningaboutelectronics.com") !== FALSE) && (strpos($currentlink, "http", 4) == FALSE))
+if ((strpos($currentlink, "https://olabodeoyinkansola.com") !== FALSE) && (strpos($currentlink, "http", 4) == FALSE))
 {
 echo $currentlink . "<br>";
 $linkscount[] += $currentlink;
